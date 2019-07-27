@@ -1,0 +1,32 @@
+{
+  "name": "wasm-cpp-demo",
+  "version": "1.0.0",
+  "description": "A simple CPP WASM demo",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "emcc --bind -s WASM=1 -s NO_EXIT_RUNTIME=1 src/demo.cpp -o build/demo.js",
+    "dist": "node dist/index.js",
+    "html": "node html/run.js"
+  },
+  "author": "TheoXiong",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "open": "^6.4.0"
+  },
+  "keywords": [
+    "WebAssembly",
+    "Emscripten",
+    "CPP",
+    "Demo",
+    "Simple"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheoXiong/wasm-cpp-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheoXiong/wasm-cpp-demo/issues"
+  },
+  "homepage": "https://github.com/TheoXiong/wasm-cpp-demo#readme"
+}
