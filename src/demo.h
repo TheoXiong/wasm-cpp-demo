@@ -1,5 +1,6 @@
 #include <string>
 #include <emscripten/bind.h>
+#include <iostream>
 
 using namespace emscripten;
 
@@ -28,13 +29,13 @@ struct StructObj
   std::string d;
 };
 
-struct StructArr 
+typedef struct  
 {
   int a;
   std::string b;
   std::string c;
   std::string d;
-};
+} StructArr;
 
 struct StructComplex
 {

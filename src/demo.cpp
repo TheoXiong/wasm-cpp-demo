@@ -49,13 +49,14 @@ StructObj getStructObj (int a, std::string b)
   return s;
 }
 
-StructArr getStructArr ()
+StructArr getStructArr (StructArr input)
 {
   StructArr s;
-  s.a = 3;
-  s.b = "member-b";
-  s.c = "member-c";
-  s.d = "member-d";
+  s.a = input.a * input.a;
+  s.b = "member-b" + input.b;
+  s.c = "member-c" + input.c;
+  s.d = "member-d" + input.d;
+
   return s;
 }
 
@@ -75,14 +76,16 @@ StructComplex getStructComplex ()
   return sc;
 }
 
-std::vector<StructArr> getArrayVector ()
+std::vector<StructArr> getArrayVector (std::vector<StructArr> input)
 {
   std::vector<StructArr> v;
 
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 3; i++) {
     StructArr s = { i, "member-b", "member-c", "member-d" };
     v.push_back(s);
   }
+
+  v.insert(v.end(), input.begin(), input.end());
 
   return v;
 }
@@ -152,7 +155,7 @@ EMSCRIPTEN_BINDINGS(demo) {
     .field("data", &StructComplex::data)
     ;
 
-  register_vector<StructArr>("StructArr");
+  register_vector<StructArr>("StructArrVector");
   register_vector<StructComplex>("StructVector");
   register_vector<Demo>("ClassVector");
   register_vector<double>("DoubleVector");
